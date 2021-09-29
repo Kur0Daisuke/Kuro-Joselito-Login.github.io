@@ -26,7 +26,6 @@
 					<form>
 						<h2>Create an account</h2>
 						<input type="text" id="user" placeholder="Username">
-						<input type="email" id="email" placeholder="Email Address">
 						<input type="password" id="pwd" placeholder="Password">
 						<button onclick="Show2(document.getElementById('pwd').type)">&#128065;</button>
 						<input type="submit" value="Sign Up" onclick="signup()">
@@ -45,12 +44,11 @@
 			bg.classList.toggle('back')
 		}
 		function signup(){
-			var user = document.getElementById('user').innerHTML;
-			localStorage.setItem("user", user);
-			var email = document.getElementById('email').innerHTML;
-			localStorage.setItem("email", email);
-			var pwd = document.getElementById('pwd').innerHTML;
-			localStorage.setItem("pwd", pwd);
+			localStorage.clear();
+			var user = document.getElementById('user').value;
+			localStorage.setItem("user", user.toString());
+			var pwd = document.getElementById('pwd').value;
+			localStorage.setItem("pwd", pwd.toString());
 			toggleForm();
 		}
 		function signin(){
