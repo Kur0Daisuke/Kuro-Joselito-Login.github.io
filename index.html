@@ -15,8 +15,9 @@
 						<h2>Sign In</h2>
 						<input type="text" id="signuser" placeholder="Username">
 						<input type="password" id="signpwd" placeholder="Password">
+						<button onclick="Show(document.getElementById('signpwd').type)">&#128065;</button>
 						<input type="submit" value="Login" onclick="signin()">
-						<p class="signup">Don't have an account? <a href="#" onclick="toggleForm();">Sign Up.</a></p>
+						<p class="signup">Don't have an account? <a href="#" onclick="toggleForm();">Sign Up</a></p>
 					</form>
 				</div>
 			</div>
@@ -27,6 +28,7 @@
 						<input type="text" id="user" placeholder="Username">
 						<input type="email" id="email" placeholder="Email Address">
 						<input type="password" id="pwd" placeholder="Password">
+						<button onclick="Show2(document.getElementById('pwd').type)">&#128065;</button>
 						<input type="submit" value="Sign Up" onclick="signup()">
 						<p class="signup">Already have an account ? <a href="#"" onclick="toggleForm();">Sign In.</a></p>
 					</form>
@@ -62,6 +64,20 @@
 				alert('try again');
 			}
 			toggleForm();
+		}
+		function Show(n){
+			if(n == 'password'){
+				document.getElementById('signpwd').type = 'text';
+			}else{
+				document.getElementById('signpwd').type = 'password';
+			}
+		}
+		function Show2(m){
+			if(m == 'password'){
+				document.getElementById('pwd').type = 'text';
+			}else{
+				document.getElementById('pwd').type = 'password';
+			}
 		}
 </script>
 </body>
