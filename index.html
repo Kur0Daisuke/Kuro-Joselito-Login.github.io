@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log In / Sign up</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<meta charset="utf-8">
+</head>
+<body>
+	<section class="bg">
+		<div class="container">
+			<div class="user singinBx">
+				<div class="imgBx"><img src="crop.jpg"></div>
+				<div class="formBx">
+					<form>
+						<h2>Sign In</h2>
+						<input type="text" id="signuser" placeholder="Username">
+						<input type="password" id="signpwd" placeholder="Password">
+						<input type="submit" value="Login" onclick="signin()">
+						<p class="signup">Don't have an account? <a href="#" onclick="toggleForm();">Sign Up.</a></p>
+					</form>
+				</div>
+			</div>
+			<div class="user singupBx">
+				<div class="formBx">
+					<form>
+						<h2>Create an account</h2>
+						<input type="text" id="user" placeholder="Username">
+						<input type="email" id="email" placeholder="Email Address">
+						<input type="password" id="pwd" placeholder="Password">
+						<input type="submit" value="Sign Up" onclick="signup()">
+						<p class="signup">Already have an account ? <a href="#"" onclick="toggleForm();">Sign In.</a></p>
+					</form>
+				</div>
+				<div class="imgBx grayscale"><img src="crop.jpg"></div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript">
+		function toggleForm(){
+			var container = document.querySelector('.container');
+			var bg = document.querySelector('.bg');
+			container.classList.toggle('active')
+			bg.classList.toggle('back')
+		}
+		function signup(){
+			var user = document.getElementById('user').innerHTML;
+			localStorage.setItem("user", user);
+			var email = document.getElementById('email').innerHTML;
+			localStorage.setItem("email", email);
+			var pwd = document.getElementById('pwd').innerHTML;
+			localStorage.setItem("pwd", pwd);
+			toggleForm();
+		}
+		function signin(){
+			var signuser = document.getElementById('signuser').value;
+			var signpwd = document.getElementById('signpwd').value;
+			var user = localStorage.getItem("user");
+			var pwd = localStorage.getItem("user");
+			if (signuser == user && signpwd = pwd) {
+				alert('successful');
+			}else{
+				alert('try again');
+			}
+			toggleForm();
+		}
+</script>
+</body>
+</html>
