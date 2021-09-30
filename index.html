@@ -37,6 +37,8 @@
 		</div>
 	</section>
 	<script type="text/javascript">
+                 var data = [];
+
 		function toggleForm(){
 			var container = document.querySelector('.container');
 			var bg = document.querySelector('.bg');
@@ -44,23 +46,25 @@
 			bg.classList.toggle('back')
 		}
 		function signup(){
-			localStorage.clear();
 			var user = document.getElementById('user').value;
 			localStorage.setItem("user", user.toString());
+                        data.push(localStorage.getItem("user");
 			var pwd = document.getElementById('pwd').value;
 			localStorage.setItem("pwd", pwd.toString());
+                        data.push(localStorage.getItem("pwd");
 			toggleForm();
 		}
 		function signin(){
 			var signuser = document.getElementById('signuser').value;
 			var signpwd = document.getElementById('signpwd').value;
-			var user = localStorage.getItem("user");
-			var pwd = localStorage.getItem("user");
-			if (signuser == user && signpwd == pwd) {
-				alert('successful');
-			}else{
+			for (var i=0;i <= data.length;i++){
+                           if (signuser == data[i] && signpwd == data[i]) {
+				 alert('successful');
+			   }else{
 				alert('try again');
-			}
+			   }
+                        }
+			
 			toggleForm();
 		}
 		function Show(n){
